@@ -1,13 +1,19 @@
-const mongoose = require('mongoose')
 const { Schema } = require('mongoose')
 
-const Plant = new Schema(
+const Animal = new Schema(
     {
-        name: {type: String, required: true},
-        description: {type: String, required: true},
-        image: {type: String, required: true}
+        name: { type: String, required: true },  
+        scientificName: { type: String, required: true }, 
+        region: { type: String, required: true },
+        imageUrl: { type: String, required: true }, 
+        lifeSpan: { type: String, required: true },
+        diet: { type: String, required: true },
+        habitat: { type: String, required: true },
+        type: { type: Schema.Types.ObjectId, ref: 'Type' }
+
+
     },
-    {timestamps: true},
+    { timestamps: true },
 )
 
-module.exports = mongoose.model('plants', Plant)
+module.exports =  Animal
